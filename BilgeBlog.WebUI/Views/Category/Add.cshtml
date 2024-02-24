@@ -1,0 +1,15 @@
+﻿
+@model CategoryAddViewModel
+
+<h3 class="text-center">Yeni Kategori Ekleme Formu</h3>
+
+<form method="post" asp-controller="Category" asp-action="Add" >
+
+    <div>
+        <label>Kategori Adı</label>
+        <input asp-for="Name" class="form-control" type="text" />
+    </div>
+
+    <button type="submit" class="btn btn-warning mt-4 fw-bold float-end">Kategori Kaydet</button>
+
+</form>

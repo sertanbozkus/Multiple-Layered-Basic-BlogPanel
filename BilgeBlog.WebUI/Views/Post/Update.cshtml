@@ -1,0 +1,36 @@
+﻿@model PostUpdateViewModel
+
+<h3 class="text-center">Post Güncelleme Sayfası</h3>
+
+
+<form method="post" asp-controller="Post" asp-action="Update">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" type="text" class="form-control" />
+        <span class="text-danger fw-bold" asp-validation-for="Title"></span>
+        @*Title'da validation hatası varsa, uyarı mesajını bu span'de ver.*@
+    </div>
+
+    <div>
+        <label asp-for="Summary"></label>
+        <textarea asp-for="Summary" rows="3" class="form-control" style="resize:none"></textarea>
+        <span class="text-danger fw-bold" asp-validation-for="Summary"></span>
+    </div>
+
+    <div>
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" rows="6" class="form-control"></textarea>
+        <span class="text-danger fw-bold" asp-validation-for="Content"></span>
+    </div>
+
+    <div>
+        <label asp-for="CategoryId"></label>
+        <select asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))" asp-for="CategoryId" class="form-control"></select>
+        <span class="text-danger fw-bold" asp-validation-for="CategoryId"></span>
+    </div>
+
+    <button type="submit" class="btn btn-warning mt-4 fw-bold float-end">Post Gönder</button>
+</form>
